@@ -86,6 +86,10 @@ class Library:
         print(f"Book {title} not found.")
 
     def register_reader(self, name, reader_id):
+        for reader in self.readers:
+            if reader.reader_id == reader_id or reader.name == name:
+                print("Reader already exists.")
+            return
         self.readers.append(Reader(reader_id, name))
         print(f"Reader {name} registered.")
 
